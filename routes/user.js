@@ -50,7 +50,7 @@ module.exports = function(app) {
         err.errors.password = {message: "Password must not be blank."};
       }
 
-      if (err) {
+      if (typeof err != "undefined") {
         console.log(err);
         if (err.name != "ValidationError" && err.name != "MongooseError")  {
           res.send(500, {error: err.message});
